@@ -6,16 +6,16 @@ import { useProducts, useStock, availableFor } from "@/lib/queries";
 
 type Sort = "relevance" | "price-asc" | "price-desc" | "name";
 interface Search {
-  q?: string;
-  category?: string;
-  sort?: Sort;
+  q?: string | undefined;
+  category?: string | undefined;
+  sort?: Sort | undefined;
 }
 
 export const Route = createFileRoute("/")({
   validateSearch: (s: Record<string, unknown>): Search => ({
-    q: typeof s.q === "string" && s.q ? s.q : undefined,
-    category: typeof s.category === "string" && s.category ? s.category : undefined,
-    sort: ["price-asc", "price-desc", "name"].includes(s.sort as string) ? (s.sort as Sort) : undefined,
+    q: typeof s["q"] === "string" && s["q"] ? s["q"] : undefined,
+    category: typeof s["category"] === "string" && s["category"] ? s["category"] : undefined,
+    sort: ["price-asc", "price-desc", "name"].includes(s["sort"] as string) ? (s["sort"] as Sort) : undefined,
   }),
   head: () => ({
     meta: [

@@ -7,7 +7,7 @@ import { useProducts } from "@/lib/queries";
 export function Header() {
   const { count } = useCart();
   const navigate = useNavigate();
-  const search = useRouterState({ select: (s) => s.location.search as { q?: string; category?: string } });
+  const search = useRouterState({ select: (s) => s.location.search as { q?: string | undefined; category?: string | undefined } });
   const [q, setQ] = useState(search.q ?? "");
   useEffect(() => setQ(search.q ?? ""), [search.q]);
   const { data } = useProducts();

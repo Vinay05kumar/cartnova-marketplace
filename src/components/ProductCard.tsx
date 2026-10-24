@@ -5,7 +5,7 @@ import { formatPrice, type Product } from "@/lib/api";
 import { useCart } from "@/lib/cart";
 import { StockBadge } from "./StockBadge";
 
-export function ProductImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
+export function ProductImage({ src, alt, className }: { src: string; alt: string; className?: string | undefined }) {
   return src ? (
     <img src={src} alt={alt} loading="lazy" className={className} />
   ) : (

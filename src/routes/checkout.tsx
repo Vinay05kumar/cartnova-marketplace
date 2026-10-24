@@ -180,7 +180,7 @@ function CheckoutPage() {
 
 const FIELD_KEYS = ["customer.name", "customer.email", "customer.phone", "name", "email", "phone", "shipping_address.line1", "shipping_address.city", "shipping_address.state", "shipping_address.postal_code"];
 
-function Field({ id, label, errs, className, children }: { id: string; label: string; errs?: string[]; className?: string; children: React.ReactElement }) {
+function Field({ id, label, errs, className, children }: { id: string; label: string; errs?: string[] | undefined; className?: string | undefined; children: React.ReactElement }) {
   return (
     <div className={className}>
       <label htmlFor={id} className="mb-1 block text-sm font-semibold">{label}</label>
